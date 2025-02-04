@@ -1,35 +1,46 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from "react";
 
-function App() {
-  const [count, setCount] = useState(0)
+type ColorProps = {
+  textColor: string;
+  bgColor: string;
+};
+
+const App = () => {
+  const [color, setColor] = useState<ColorProps>({
+    textColor: "black",
+    bgColor: "white",
+  });
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div
+      className="w-full h-screen duration-300 d-flex justify-center text-align-center"
+      style={{ backgroundColor: color.bgColor, color: color.textColor }}
+    >
+      <h1>Manel Ariapala</h1>
+      <div className="fixed flex flex-wrap justify-center bottom-12 inset-x-0 px-2">
+        <div className="flex flex-wrap justify-center gap-3 shadow-lg bg-white px-3 py-2 rounded-3xl">
+          <button
+            onClick={() => setColor({ textColor: "red", bgColor: "pink" })}
+            className="outline-none px-4 py-1 rounded-full shadow-lg text-pink-600"
+          >
+            Pink
+          </button>
+          <button
+            onClick={() => setColor({ textColor: "pink", bgColor: "red" })}
+            className="outline-none px-4 py-1 rounded-full shadow-lg text-red-600"
+          >
+            Red
+          </button>
+          <button
+            onClick={() => setColor({ textColor: "pink", bgColor: "green" })}
+            className="outline-none px-4 py-1 rounded-full shadow-lg text-green-600"
+          >
+            Green
+          </button>
+        </div>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+    </div>
+  );
+};
 
-export default App
+export default App;
