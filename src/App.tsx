@@ -13,7 +13,7 @@ const App = () => {
 
   return (
     <div
-      className="w-full h-screen duration-300 d-flex justify-center text-align-center"
+      className="w-full h-screen duration-300 flex justify-center items-center"
       style={{ backgroundColor: color.bgColor, color: color.textColor }}
     >
       <h1>Manel Ariapala</h1>
